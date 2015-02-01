@@ -10,4 +10,4 @@ with open(sys.argv[1]) as f:
     if '" 200 ' in line:
       total_200s += 1
 
-print total_200s
+print '{"count": ' + str(total_200s) + ', "startups": "?"}'
