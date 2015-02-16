@@ -1,6 +1,7 @@
 import sys
 
 total_200s = 0
+total_notifications = 0
 
 with open(sys.argv[1]) as f:
   for line in f:
@@ -10,4 +11,10 @@ with open(sys.argv[1]) as f:
     if '" 200 ' in line:
       total_200s += 1
 
-print '{"count": ' + str(total_200s) + ', "startups": "?"}'
+with open(sys.argv[2]) as f:
+  for line in f:
+
+    if '] "GET /notifications.json' in line:
+      total_notifications += 1
+
+print '{"count": ' + str(total_200s) + ', "startups": ' + str(total_notifications) + '}'
